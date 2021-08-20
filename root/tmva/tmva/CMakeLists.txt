@@ -19,3 +19,10 @@ if (ROOT_cuda_FOUND AND ROOT_tmva-gpu_FOUND)
       LABEL short
       LIBRARIES Core Tree MathCore RIO Hist TMVA ${DNN_CUDA_LIBRARIES})
 endif()
+
+if(ROOT_tmva_FOUND AND ROOT_tmva-cpu_FOUND AND ROOT_imt_FOUND)
+   RB_ADD_GBENCHMARK(RNNKerasCpuBenchmarks
+      RNNKerasCpuBenchmarks.cxx
+      LABEL short
+      LIBRARIES Core Tree MathCore Gpad RIO Hist TMVA PyMVA)
+endif()
